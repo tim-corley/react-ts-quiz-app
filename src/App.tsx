@@ -21,8 +21,6 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
 
-  console.log(questions);
-
   const startTriva = async () => {
     setLoading(true);
     setGameOver(false);
@@ -65,7 +63,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Wrapper>
-        <h1>MOVIE QUIZ</h1>
+        <h1>MOVIE TRIVIA</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <button className='start' onClick={startTriva}>
             Start
@@ -73,7 +71,7 @@ const App = () => {
         ) : null}
 
         {!gameOver ? <p className='score'>Score: {score}</p> : null}
-        {loading && <p>Loading Questions...</p>}
+        {loading && <p className='loading'>Loading Questions...</p>}
         {!loading && !gameOver && (
           <QuestionCard
             questionNum={number + 1}

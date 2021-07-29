@@ -86,6 +86,13 @@ Follow the steps below to get a local development instance up & running.
    yarn start
    ```
 
+### Testing
+
+1. Run tests
+   ```sh
+   yarn test
+   ```
+
 ### Deployment
 
 1. Create build & deploy to Github Pages

@@ -1,0 +1,21 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What was the first feature-length computer-animated movie?",
+      "correct_answer": "Toy Story",
+      "incorrect_answers": ["Tron", "Lion king", "101 Dalmatians"]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which 1958 movie starred Kirk Douglas and Tony Curtis as half-brothers Einar and Eric?",
+      "correct_answer": "The Vikings ",
+      "incorrect_answers": ["The Long Ships", "Prince Valiant", "Spartacus"]
+    }
+  ]
+}
