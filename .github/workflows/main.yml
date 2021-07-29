@@ -32,7 +32,11 @@ jobs:
           node-version: 14
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Set Git User Email
+        uses: git config user.email "tcorley215@gmail.com"
+      - name: Set Git User Name
+        uses: git config user.name "Tim Corley"
       - name: Install dependencies
         run: yarn install
-      - name: Run test command
+      - name: Run deploy command
         run: yarn deploy
