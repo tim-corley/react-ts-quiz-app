@@ -1,46 +1,112 @@
-# Getting Started with Create React App
+<!-- PROJECT HEADER -->
+<br />
+<p align="center">
+  <a href="https://react-weather-app-zeta.vercel.app/">
+    <img src="sr/../src/img/clapper.png" alt="Logo" width="100" height="100">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h2 align="center">React & TypeSript Movie Trivia App</h2>
 
-## Available Scripts
+  <p align="center">
+    Put your movie knowledge to the test!
+    <br />
+    <br />
+    <a href="https://github.com/tim-corley/react-weather-app/issues">Report Bug</a>
+  </p>
+    <div align="center">
+    <h3>Built with:<h3>
+          <a href="https://www.typescriptlang.org/docs/">
+    <img src="src/img/typescript.svg" alt="Logo" width="60" height="60">
+  </a>
+      <a style="margin-left: 50px" href="https://reactjs.org/docs/getting-started.html">
+    <img src="src/img/react.svg" alt="Logo" width="60" height="60">
+  </a>
+    
+  </div>
+</p>
 
-In the project directory, you can run:
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+        <li>
+      <a href="#dev-notes">Dev Notes</a>
+      <ul>
+        <li><a href="#api">API</a></li>
+      </ul>
+    </li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-### `yarn start`
+<!-- ABOUT THE PROJECT -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About The Project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The movie trivia app showcases TypeScript within a React project. The application also leverages asynchronous JavaScript in order to fetch data from a 3<sup>rd</sup> party API ([Open Trivia Database](https://opentdb.com/)). Lastly, the styled-components library is utilized for CSS-in-JS styling.
 
-### `yarn test`
+[Visit Demo](https://react-weather-app-zeta.vercel.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Built With
 
-### `yarn build`
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [React](https://reactjs.org/docs/getting-started.html)
+- [Open Trivia Database API](https://opentdb.com/)
+<!-- GETTING STARTED -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Follow the steps below to get a local development instance up & running.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `yarn eject`
+1. Clone the repo
+   ```sh
+   git clone https://github.com/tim-corley/react-ts-quiz-app.git
+   ```
+2. Install packages
+   ```sh
+   yarn install
+   ```
+3. Start the development server
+   ```sh
+   yarn start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Deployment
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Create build
+   ```sh
+   yarn build
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+I've decided to host this application via [Vercel](https://vercel.com/docs). Follow the documentation to get setup and deploy the app
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### API
 
-## Learn More
+This application leverages the [Open Trivia Database API](https://opentdb.com/) with a category query parameter set for Entertainment - Film questions.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- LICENSE -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- CONTACT -->
+
+## Contact
+
+Tim Corley - [@tcor215](https://twitter.com/tcor215) - contact@tim-corley.dev
