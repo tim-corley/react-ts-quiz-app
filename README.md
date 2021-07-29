@@ -88,6 +88,8 @@ Follow the steps below to get a local development instance up & running.
 
 ### Testing
 
+Unit testing is achieved by using React Testing Library and Mock Service Worker.
+
 1. Run tests
    ```sh
    yarn test
