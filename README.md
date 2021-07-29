@@ -1,7 +1,7 @@
 <!-- PROJECT HEADER -->
 <br />
 <p align="center">
-  <a href="https://react-weather-app-zeta.vercel.app/">
+  <a href="https://tim-corley.github.io/react-ts-quiz-app/">
     <img src="sr/../src/img/clapper.png" alt="Logo" width="100" height="100">
   </a>
 
@@ -11,7 +11,7 @@
     Put your movie knowledge to the test!
     <br />
     <br />
-    <a href="https://github.com/tim-corley/react-weather-app/issues">Report Bug</a>
+    <a href="https://github.com/tim-corley/react-ts-quiz-app/issues">Report Bug</a>
   </p>
     <div align="center">
     <h3>Built with:<h3>
@@ -58,7 +58,7 @@
 
 The movie trivia app showcases TypeScript within a React project. The application also leverages asynchronous JavaScript in order to fetch data from a 3<sup>rd</sup> party API ([Open Trivia Database](https://opentdb.com/)). Lastly, the styled-components library is utilized for CSS-in-JS styling.
 
-[Visit Demo](https://react-weather-app-zeta.vercel.app/)
+[Visit Demo](https://tim-corley.github.io/react-ts-quiz-app/)
 
 ### Built With
 
@@ -88,12 +88,10 @@ Follow the steps below to get a local development instance up & running.
 
 ### Deployment
 
-1. Create build
+1. Create build & deploy to Github Pages
    ```sh
-   yarn build
+   yarn deploy
    ```
-
-I've decided to host this application via [Vercel](https://vercel.com/docs). Follow the documentation to get setup and deploy the app
 
 ### API
 
