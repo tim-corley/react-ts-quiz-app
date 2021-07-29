@@ -63,7 +63,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Wrapper>
-        <h1>MOVIE TRIVIA</h1>
+        <h1>MOVIE TRIVIA 🎥</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <button className='start' onClick={startTriva}>
             Start
