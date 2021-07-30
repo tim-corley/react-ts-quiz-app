@@ -1,16 +1,14 @@
-import styled from 'styled-components';
+import tw, { styled } from 'twin.macro';
 
 export const Wrapper = styled.div`
-  max-width: 1100px;
-  background: #ebfeff;
-  border-radius: 10px;
-  border: 2px solid #0085a3;
-  padding: 20px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-  text-align: center;
+  ${tw`max-w-screen-lg mx-2 px-6 py-4 border-2 text-center border-primary_light rounded-md text-2xl text-secondary_light`}
+
+  h2 {
+    ${tw` my-2 text-lg text-accent_dark`}
+  }
 
   p {
-    font-size: 1rem;
+    ${tw`mb-4 text-lg text-secondary`}
   }
 `;
 
