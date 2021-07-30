@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { fetchQuizQuestions } from './api';
 import QuestionCard from './components/QuestionCard';
 import { QuestionState, Difficulty } from './api';
-import { GlobalStyle, Wrapper } from './App.styles';
+import { GlobalStyle, Wrapper, DifficultySelect } from './App.styles';
 
 export type AnswerObject = {
   question: string;
@@ -20,14 +20,12 @@ const App = () => {
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
+  const [difficulty, setDifficulty] = useState(Difficulty.EASY);
 
   const startTriva = async () => {
     setLoading(true);
     setGameOver(false);
-    const newQuestions = await fetchQuizQuestions(
-      TOTAL_QUESTIONS,
-      Difficulty.EASY
-    );
+    const newQuestions = await fetchQuizQuestions(TOTAL_QUESTIONS, difficulty);
     setQuestions(newQuestions);
     setScore(0);
     setUserAnswers([]);
@@ -65,9 +63,49 @@ const App = () => {
       <Wrapper>
         <h1>MOVIE TRIVIA</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <button className='start' onClick={startTriva}>
-            Start
-          </button>
+          <>
+            <button className='start' onClick={startTriva}>
+              Start
+            </button>
+            <DifficultySelect>
+              <p>Select Question Difficulty:</p>
+              <div className='radio-buttons'>
+                <div>
+                  <input
+                    type='radio'
+                    id='easy'
+                    name='easy'
+                    value='easy'
+                    checked={difficulty === Difficulty.EASY}
+                    onChange={() => setDifficulty(Difficulty.EASY)}
+                  ></input>
+                  <label htmlFor='easy'>Easy</label>
+                </div>
+                <div>
+                  <input
+                    type='radio'
+                    id='medium'
+                    name='medium'
+                    value='medium'
+                    checked={difficulty === Difficulty.MEDIUM}
+                    onChange={() => setDifficulty(Difficulty.MEDIUM)}
+                  ></input>
+                  <label htmlFor='medium'>Medium</label>
+                </div>
+                <div>
+                  <input
+                    type='radio'
+                    id='hard'
+                    name='hard'
+                    value='hard'
+                    checked={difficulty === Difficulty.HARD}
+                    onChange={() => setDifficulty(Difficulty.HARD)}
+                  ></input>
+                  <label htmlFor='hard'>Hard</label>
+                </div>
+              </div>
+            </DifficultySelect>
+          </>
         ) : null}
 
         {!gameOver ? <p className='score'>Score: {score}</p> : null}

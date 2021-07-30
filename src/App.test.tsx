@@ -8,6 +8,17 @@ test('Renders Start Button', () => {
   expect(btnElem).toBeInTheDocument();
 });
 
+test('Change Difficulty Selection Works', () => {
+  render(<App />);
+  expect(screen.getByLabelText('Easy')).toBeChecked();
+  expect(screen.getByLabelText('Hard')).not.toBeChecked();
+  userEvent.click(screen.getByLabelText('Hard'));
+  expect(screen.getByLabelText('Hard')).toBeChecked();
+  userEvent.click(screen.getByLabelText('Medium'));
+  expect(screen.getByLabelText('Medium')).toBeChecked();
+  expect(screen.getByLabelText('Easy')).not.toBeChecked();
+});
+
 test('Clicking "Start" Fetches Data & Displays First Question', async () => {
   render(<App />);
   userEvent.click(screen.getByText('Start'));
