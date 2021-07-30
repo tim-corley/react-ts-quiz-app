@@ -22,7 +22,7 @@ const App = () => {
   const [gameOver, setGameOver] = useState(true);
   const [difficulty, setDifficulty] = useState(Difficulty.EASY);
 
-  const startTriva = async () => {
+  const startTrivia = async () => {
     setLoading(true);
     setGameOver(false);
     const newQuestions = await fetchQuizQuestions(TOTAL_QUESTIONS, difficulty);
@@ -64,7 +64,7 @@ const App = () => {
         <h1>MOVIE TRIVIA</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <>
-            <button className='start' onClick={startTriva}>
+            <button className='start' onClick={startTrivia}>
               Start
             </button>
             <DifficultySelect>
