@@ -1,10 +1,7 @@
-name: Application Test and Deploy Workflow
+name: Test and Deploy on Push
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
