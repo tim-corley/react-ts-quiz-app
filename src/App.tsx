@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { fetchQuizQuestions } from './api';
 import QuestionCard from './components/QuestionCard';
 import { QuestionState, Difficulty } from './api';
-import { GlobalStyle, Wrapper, DifficultySelect } from './App.styles';
+import { GlobalStyle, Wrapper, Loading, DifficultySelect } from './App.styles';
 
 export type AnswerObject = {
   question: string;
@@ -109,7 +109,14 @@ const App = () => {
         ) : null}
 
         {!gameOver ? <p className='score'>Score: {score}</p> : null}
-        {loading && <p className='loading'>Loading Questions...</p>}
+        {loading && (
+          <Loading>
+            <div className='loading-ripple'>
+              <div></div>
+              <div></div>
+            </div>
+          </Loading>
+        )}
         {!loading && !gameOver && (
           <QuestionCard
             questionNum={number + 1}
