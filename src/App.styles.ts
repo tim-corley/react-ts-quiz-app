@@ -67,3 +67,24 @@ export const Wrapper = styled.div`
         max-width: 200px;
     }
 `;
+
+export const DifficultySelect = styled.div`
+  max-width: 1100px;
+  background: #ebfeff;
+  border-radius: 10px;
+  border: 2px solid #0085a3;
+  padding: 10px 35px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+  text-align: center;
+
+  .radio-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 225px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+`;
