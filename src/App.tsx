@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { fetchQuizQuestions } from './api';
 import QuestionCard from './components/QuestionCard';
 import { QuestionState, Difficulty } from './api';
-import { GlobalStyle, Wrapper, Loading, DifficultySelect } from './App.styles';
+import * as Styled from './styles/AppStyles';
 
 export type AnswerObject = {
   question: string;
@@ -58,85 +58,92 @@ const App = () => {
   };
 
   return (
-    <>
-      <GlobalStyle />
-      <Wrapper>
-        <h1>MOVIE TRIVIA</h1>
-        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <>
-            <button className='start' onClick={startTrivia}>
-              Start
-            </button>
-            <DifficultySelect>
-              <p>Select Question Difficulty:</p>
-              <div className='radio-buttons'>
-                <div>
-                  <input
-                    type='radio'
-                    id='easy'
-                    name='easy'
-                    value='easy'
-                    checked={difficulty === Difficulty.EASY}
-                    onChange={() => setDifficulty(Difficulty.EASY)}
-                  ></input>
-                  <label htmlFor='easy'>Easy</label>
-                </div>
-                <div>
-                  <input
-                    type='radio'
-                    id='medium'
-                    name='medium'
-                    value='medium'
-                    checked={difficulty === Difficulty.MEDIUM}
-                    onChange={() => setDifficulty(Difficulty.MEDIUM)}
-                  ></input>
-                  <label htmlFor='medium'>Medium</label>
-                </div>
-                <div>
-                  <input
-                    type='radio'
-                    id='hard'
-                    name='hard'
-                    value='hard'
-                    checked={difficulty === Difficulty.HARD}
-                    onChange={() => setDifficulty(Difficulty.HARD)}
-                  ></input>
-                  <label htmlFor='hard'>Hard</label>
-                </div>
+    <Styled.Wrapper>
+      <h1>MOVIE TRIVIA</h1>
+      {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+        <>
+          <button className='start' onClick={startTrivia}>
+            Start
+          </button>
+          <Styled.DifficultySelect>
+            <h3>Select Question Difficulty</h3>
+            <div className='radio-wrapper'>
+              <div>
+                <input
+                  type='radio'
+                  id='easy'
+                  name='easy'
+                  value='easy'
+                  className='hidden'
+                  checked={difficulty === Difficulty.EASY}
+                  onChange={() => setDifficulty(Difficulty.EASY)}
+                ></input>
+                <label htmlFor='easy'>
+                  <span></span>
+                  Easy
+                </label>
               </div>
-            </DifficultySelect>
-          </>
-        ) : null}
-
-        {!gameOver ? <p className='score'>Score: {score}</p> : null}
-        {loading && (
-          <Loading>
-            <div className='loading-ripple'>
-              <div></div>
-              <div></div>
+              <div className='row'>
+                <input
+                  type='radio'
+                  id='medium'
+                  name='medium'
+                  value='medium'
+                  className='hidden'
+                  checked={difficulty === Difficulty.MEDIUM}
+                  onChange={() => setDifficulty(Difficulty.MEDIUM)}
+                ></input>
+                <label htmlFor='medium'>
+                  <span></span>Medium
+                </label>
+              </div>
+              <div className='row'>
+                <input
+                  type='radio'
+                  id='hard'
+                  name='hard'
+                  value='hard'
+                  className='hidden'
+                  checked={difficulty === Difficulty.HARD}
+                  onChange={() => setDifficulty(Difficulty.HARD)}
+                ></input>
+                <label htmlFor='hard'>
+                  <span></span>Hard
+                </label>
+              </div>
             </div>
-          </Loading>
+          </Styled.DifficultySelect>
+        </>
+      ) : null}
+
+      {!gameOver ? <p className='score'>Score: {score}</p> : null}
+      {loading && (
+        <Styled.Loading>
+          <div className='loading-ripple'>
+            <div></div>
+            <div></div>
+          </div>
+        </Styled.Loading>
+      )}
+      {!loading && !gameOver && (
+        <QuestionCard
+          questionNum={number + 1}
+          totalQuestions={TOTAL_QUESTIONS}
+          question={questions[number].question}
+          answers={questions[number].answers}
+          userAnswer={userAnswers ? userAnswers[number] : undefined}
+          checkAnswer={checkAnswer}
+        />
+      )}
+      {!gameOver &&
+        !loading &&
+        userAnswers.length === number + 1 &&
+        number !== TOTAL_QUESTIONS - 1 && (
+          <button className='next' onClick={nextQuestion}>
+            Next
+          </button>
         )}
-        {!loading && !gameOver && (
-          <QuestionCard
-            questionNum={number + 1}
-            totalQuestions={TOTAL_QUESTIONS}
-            question={questions[number].question}
-            answers={questions[number].answers}
-            userAnswer={userAnswers ? userAnswers[number] : undefined}
-            checkAnswer={checkAnswer}
-          />
-        )}
-        {!gameOver &&
-          !loading &&
-          userAnswers.length === number + 1 &&
-          number !== TOTAL_QUESTIONS - 1 && (
-            <button className='next' onClick={nextQuestion}>
-              Next
-            </button>
-          )}
-      </Wrapper>
-    </>
+    </Styled.Wrapper>
   );
 };
 
