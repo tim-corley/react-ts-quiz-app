@@ -18,29 +18,15 @@ type ButtonWrapperProps = {
 };
 
 export const ButtonWrapper = styled.div<ButtonWrapperProps>`
-    transition: all 0.3s ease;
+  ${tw`transform hover:transition duration-500 hover:scale-105 animate-fade-in-down`}
 
-    :hover {
-        opacity 0.8;
-    }
-
-    button {
-        cursor: pointer;
-        user-select: none;
-        font-size: 0.8rem;
-        width: 100%;
-        height: 40px;
-        margin: 5px 0;
-        background: ${({ correct, userClicked }) =>
-          correct
-            ? 'linear-gradient(90deg, #56ffa4, #59bc86)'
-            : !correct && userClicked
-            ? 'linear-gradient(90deg, #ff5656, #c16868)'
-            : 'linear-gradient(90deg, #56ccff, #6eafb4)'};
-        border: 3px solid #fff;
-        box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        color: #fff;
-        text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
-    }
+  button {
+    ${tw`cursor-pointer select-none text-white text-sm w-full h-10 my-4 bg-transparent border-2 border-white rounded-md`}
+    ${({ correct, userClicked }) =>
+      correct
+        ? tw`bg-gradient-to-r from-green-300 to-green-600`
+        : !correct && userClicked
+        ? tw`bg-gradient-to-r from-red-300 to-red-600`
+        : tw`bg-transparent`}
+  }
 `;
