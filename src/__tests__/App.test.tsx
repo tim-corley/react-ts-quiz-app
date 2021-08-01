@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { networkErrorHandlers } from '../mocks/handlers';
+import { server } from '../mocks/server';
 import App from '../App';
 
 test('Renders Start Button', () => {
@@ -46,4 +48,12 @@ test('Next Button Prompts Next Question', async () => {
   userEvent.click(await screen.findByText('Next'));
   expect(await screen.findByText('Question: 2 / 10')).toBeInTheDocument();
   expect(await screen.findByText('The Vikings')).toBeInTheDocument();
+});
+
+test('Error Message Shown on Bad Request', async () => {
+  server.use(...networkErrorHandlers);
+  render(<App />);
+  userEvent.click(screen.getByText('Start'));
+  const errorMessage = await screen.findByText(/Oops, something went wrong./i);
+  expect(errorMessage).toBeInTheDocument();
 });

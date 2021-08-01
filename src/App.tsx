@@ -16,6 +16,7 @@ const TOTAL_QUESTIONS = 10;
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<QuestionState[]>([]);
+  const [error, setError] = useState<string | null>(null);
   const [number, setNumber] = useState(0);
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
@@ -25,8 +26,15 @@ const App = () => {
   const startTrivia = async () => {
     setLoading(true);
     setGameOver(false);
-    const newQuestions = await fetchQuizQuestions(TOTAL_QUESTIONS, difficulty);
-    setQuestions(newQuestions);
+    try {
+      const newQuestions = await fetchQuizQuestions(
+        TOTAL_QUESTIONS,
+        difficulty
+      );
+      setQuestions(newQuestions);
+    } catch (err) {
+      setError(err);
+    }
     setScore(0);
     setUserAnswers([]);
     setNumber(0);
@@ -125,7 +133,8 @@ const App = () => {
           </div>
         </Styled.Loading>
       )}
-      {!loading && !gameOver && (
+      {error && <div className='score'>{error.toString()}</div>}
+      {!loading && !error && !gameOver && (
         <QuestionCard
           questionNum={number + 1}
           totalQuestions={TOTAL_QUESTIONS}
