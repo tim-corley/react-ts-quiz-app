@@ -6,8 +6,13 @@ on:
       - main
 
 jobs:
+<<<<<<< Updated upstream
   test:
     name: Test
+=======
+  unit-tests:
+    name: Unit Tests
+>>>>>>> Stashed changes
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js
@@ -27,7 +32,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    needs: test
+    needs: [unit-tests, ui-chrome-tests]
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
