@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  test:
-    name: Test
+  unit-test:
+    name: Unit Tests
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js
