@@ -38,6 +38,7 @@ module.exports = {
   variants: {
     extend: {
       transform: ['hover'],
+      border: ['first'],
     },
   },
   plugins: [],

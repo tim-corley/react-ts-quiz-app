@@ -12,13 +12,13 @@ test('Renders Start Button', () => {
 
 test('Change Difficulty Selection Works', () => {
   render(<App />);
-  expect(screen.getByLabelText('Easy')).toBeChecked();
-  expect(screen.getByLabelText('Hard')).not.toBeChecked();
-  userEvent.click(screen.getByLabelText('Hard'));
-  expect(screen.getByLabelText('Hard')).toBeChecked();
-  userEvent.click(screen.getByLabelText('Medium'));
-  expect(screen.getByLabelText('Medium')).toBeChecked();
-  expect(screen.getByLabelText('Easy')).not.toBeChecked();
+  expect(screen.getByLabelText('easy')).toBeChecked();
+  expect(screen.getByLabelText('hard')).not.toBeChecked();
+  userEvent.click(screen.getByLabelText('hard'));
+  expect(screen.getByLabelText('hard')).toBeChecked();
+  userEvent.click(screen.getByLabelText('medium'));
+  expect(screen.getByLabelText('medium')).toBeChecked();
+  expect(screen.getByLabelText('easy')).not.toBeChecked();
 });
 
 test('Clicking "Start" Fetches Data & Displays First Question', async () => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { fetchQuizQuestions } from './api';
 import QuestionCard from './components/QuestionCard';
+import DifficultyCard from './components/DifficultyCard';
 import { QuestionState, Difficulty } from './api';
 import * as Styled from './styles/AppStyles';
 
@@ -21,7 +22,7 @@ const App = () => {
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
-  const [difficulty, setDifficulty] = useState(Difficulty.EASY);
+  const [difficulty, setDifficulty] = useState<string>(Difficulty.EASY);
 
   const startTrivia = async () => {
     setLoading(true);
@@ -73,54 +74,10 @@ const App = () => {
           <button className='start' onClick={startTrivia}>
             Start
           </button>
-          <Styled.DifficultySelect>
-            <h3>Select Question Difficulty</h3>
-            <div className='radio-wrapper'>
-              <div>
-                <input
-                  type='radio'
-                  id='easy'
-                  name='easy'
-                  value='easy'
-                  className='hidden'
-                  checked={difficulty === Difficulty.EASY}
-                  onChange={() => setDifficulty(Difficulty.EASY)}
-                ></input>
-                <label htmlFor='easy'>
-                  <span></span>
-                  Easy
-                </label>
-              </div>
-              <div className='row'>
-                <input
-                  type='radio'
-                  id='medium'
-                  name='medium'
-                  value='medium'
-                  className='hidden'
-                  checked={difficulty === Difficulty.MEDIUM}
-                  onChange={() => setDifficulty(Difficulty.MEDIUM)}
-                ></input>
-                <label htmlFor='medium'>
-                  <span></span>Medium
-                </label>
-              </div>
-              <div className='row'>
-                <input
-                  type='radio'
-                  id='hard'
-                  name='hard'
-                  value='hard'
-                  className='hidden'
-                  checked={difficulty === Difficulty.HARD}
-                  onChange={() => setDifficulty(Difficulty.HARD)}
-                ></input>
-                <label htmlFor='hard'>
-                  <span></span>Hard
-                </label>
-              </div>
-            </div>
-          </Styled.DifficultySelect>
+          <DifficultyCard
+            difficulty={difficulty}
+            setDifficulty={setDifficulty}
+          />
         </>
       ) : null}
 

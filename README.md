@@ -21,6 +21,9 @@
       <a style="margin-left: 50px" href="https://reactjs.org/docs/getting-started.html">
     <img src="src/img/react.svg" alt="Logo" width="60" height="60">
   </a>
+        <a style="margin-left: 50px" href="https://github.com/ben-rogerson/twin.macro">
+    <img src="src/img/twin.png" alt="Logo" width="60" height="60">
+  </a>
     
   </div>
 </p>
@@ -65,6 +68,7 @@ The movie trivia app showcases TypeScript within a React project. The applicatio
 - [TypeScript](https://www.typescriptlang.org/docs/)
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Open Trivia Database API](https://opentdb.com/)
+- [Twin](https://github.com/ben-rogerson/twin.macro)
 <!-- GETTING STARTED -->
 
 ## Getting Started
