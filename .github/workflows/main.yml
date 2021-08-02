@@ -24,6 +24,38 @@ jobs:
       - name: Run test command
         run: yarn test
 
+  install:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.15.0-chrome86-ff82
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress install
+        uses: cypress-io/github-action@v2
+        with:
+          runTests: false
+      - run: yarn cypress info
+
+  ui-chrome-tests:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.15.0-chrome86-ff82
+    needs: install
+    strategy:
+      fail-fast: false
+
+    steps:
+      - name: Install dependencies
+        run: yarn install
+
+      - name: UI Tests - Chrome
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn cypress:run
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 30
+          browser: chrome
+
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
