@@ -6,13 +6,8 @@ on:
       - main
 
 jobs:
-<<<<<<< Updated upstream
-  test:
-    name: Test
-=======
   unit-tests:
     name: Unit Tests
->>>>>>> Stashed changes
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js
